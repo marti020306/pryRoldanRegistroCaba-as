@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             grbTipoCabañas = new GroupBox();
-            mtbDias = new MaskedTextBox();
+            cbxDias = new ComboBox();
             lstDias = new Label();
-            comboBox1 = new ComboBox();
+            cbxPersonas = new ComboBox();
             lstPersonas = new Label();
             cbxTipo = new ComboBox();
             lblTipo = new Label();
@@ -39,11 +39,11 @@
             chkAdicionales = new CheckedListBox();
             mrgTipoPago = new GroupBox();
             lblTarjeta = new Label();
-            comboBox2 = new ComboBox();
+            cbxTarjetas = new ComboBox();
             optTarjeta = new RadioButton();
             optEfectivo = new RadioButton();
             groupBox1 = new GroupBox();
-            txt = new TextBox();
+            txtApellido = new TextBox();
             txtNombre = new TextBox();
             lblApellido = new Label();
             lblNombre = new Label();
@@ -57,9 +57,9 @@
             // 
             // grbTipoCabañas
             // 
-            grbTipoCabañas.Controls.Add(mtbDias);
+            grbTipoCabañas.Controls.Add(cbxDias);
             grbTipoCabañas.Controls.Add(lstDias);
-            grbTipoCabañas.Controls.Add(comboBox1);
+            grbTipoCabañas.Controls.Add(cbxPersonas);
             grbTipoCabañas.Controls.Add(lstPersonas);
             grbTipoCabañas.Controls.Add(cbxTipo);
             grbTipoCabañas.Controls.Add(lblTipo);
@@ -70,14 +70,14 @@
             grbTipoCabañas.TabStop = false;
             grbTipoCabañas.Text = "Tipo de cabañas ";
             // 
-            // mtbDias
+            // cbxDias
             // 
-            mtbDias.Location = new Point(481, 47);
-            mtbDias.Mask = "99999";
-            mtbDias.Name = "mtbDias";
-            mtbDias.Size = new Size(125, 27);
-            mtbDias.TabIndex = 2;
-            mtbDias.ValidatingType = typeof(int);
+            cbxDias.FormattingEnabled = true;
+            cbxDias.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
+            cbxDias.Location = new Point(481, 45);
+            cbxDias.Name = "cbxDias";
+            cbxDias.Size = new Size(151, 28);
+            cbxDias.TabIndex = 2;
             // 
             // lstDias
             // 
@@ -88,13 +88,14 @@
             lstDias.TabIndex = 1;
             lstDias.Text = "Días";
             // 
-            // comboBox1
+            // cbxPersonas
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(280, 44);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 1;
+            cbxPersonas.FormattingEnabled = true;
+            cbxPersonas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8" });
+            cbxPersonas.Location = new Point(280, 44);
+            cbxPersonas.Name = "cbxPersonas";
+            cbxPersonas.Size = new Size(151, 28);
+            cbxPersonas.TabIndex = 1;
             // 
             // lstPersonas
             // 
@@ -108,11 +109,12 @@
             // cbxTipo
             // 
             cbxTipo.FormattingEnabled = true;
-            cbxTipo.Items.AddRange(new object[] { "Estandar", "Familiar", "Rustica ", "Con pileta" });
+            cbxTipo.Items.AddRange(new object[] { "A ", "B" });
             cbxTipo.Location = new Point(51, 39);
             cbxTipo.Name = "cbxTipo";
             cbxTipo.Size = new Size(151, 28);
             cbxTipo.TabIndex = 1;
+            cbxTipo.SelectedIndexChanged += cbxTipo_SelectedIndexChanged;
             // 
             // lblTipo
             // 
@@ -149,7 +151,7 @@
             // mrgTipoPago
             // 
             mrgTipoPago.Controls.Add(lblTarjeta);
-            mrgTipoPago.Controls.Add(comboBox2);
+            mrgTipoPago.Controls.Add(cbxTarjetas);
             mrgTipoPago.Controls.Add(optTarjeta);
             mrgTipoPago.Controls.Add(optEfectivo);
             mrgTipoPago.Location = new Point(239, 161);
@@ -168,14 +170,15 @@
             lblTarjeta.TabIndex = 4;
             lblTarjeta.Text = "Tarjetas";
             // 
-            // comboBox2
+            // cbxTarjetas
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Debito", "Credito " });
-            comboBox2.Location = new Point(200, 81);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 3;
+            cbxTarjetas.Enabled = false;
+            cbxTarjetas.FormattingEnabled = true;
+            cbxTarjetas.Items.AddRange(new object[] { "Card Red", "Card Green", "Card Blue " });
+            cbxTarjetas.Location = new Point(200, 81);
+            cbxTarjetas.Name = "cbxTarjetas";
+            cbxTarjetas.Size = new Size(151, 28);
+            cbxTarjetas.TabIndex = 3;
             // 
             // optTarjeta
             // 
@@ -187,6 +190,7 @@
             optTarjeta.TabStop = true;
             optTarjeta.Text = "Tarjeta";
             optTarjeta.UseVisualStyleBackColor = true;
+            optTarjeta.CheckedChanged += optTarjeta_CheckedChanged;
             // 
             // optEfectivo
             // 
@@ -201,7 +205,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txt);
+            groupBox1.Controls.Add(txtApellido);
             groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(lblApellido);
             groupBox1.Controls.Add(lblNombre);
@@ -211,13 +215,14 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Titular de la Reserva";
+            groupBox1.Enter += groupBox1_Enter;
             // 
-            // txt
+            // txtApellido
             // 
-            txt.Location = new Point(82, 82);
-            txt.Name = "txt";
-            txt.Size = new Size(294, 27);
-            txt.TabIndex = 5;
+            txtApellido.Location = new Point(82, 82);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(294, 27);
+            txtApellido.TabIndex = 5;
             // 
             // txtNombre
             // 
@@ -246,12 +251,14 @@
             // 
             // cmdAceptar
             // 
+            cmdAceptar.Enabled = false;
             cmdAceptar.Location = new Point(567, 451);
             cmdAceptar.Name = "cmdAceptar";
             cmdAceptar.Size = new Size(94, 29);
             cmdAceptar.TabIndex = 4;
             cmdAceptar.Text = "Aceptar";
             cmdAceptar.UseVisualStyleBackColor = true;
+            cmdAceptar.Click += cmdAceptar_Click;
             // 
             // cmdCancelar
             // 
@@ -261,13 +268,13 @@
             cmdCancelar.TabIndex = 5;
             cmdCancelar.Text = "Cancelar";
             cmdCancelar.UseVisualStyleBackColor = true;
+            cmdCancelar.Click += cmdCancelar_Click;
             // 
             // frmRegistroCabañas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(702, 492);
+            ClientSize = new Size(718, 646);
             Controls.Add(cmdCancelar);
             Controls.Add(cmdAceptar);
             Controls.Add(groupBox1);
@@ -292,22 +299,22 @@
         private Label lblTipo;
         private ComboBox cbxTipo;
         private Label lstDias;
-        private ComboBox comboBox1;
+        private ComboBox cbxPersonas;
         private Label lstPersonas;
-        private MaskedTextBox mtbDias;
         private GroupBox grbAdicionales;
         private CheckedListBox chkAdicionales;
         private GroupBox mrgTipoPago;
         private RadioButton optTarjeta;
         private RadioButton optEfectivo;
-        private ComboBox comboBox2;
+        private ComboBox cbxTarjetas;
         private Label lblTarjeta;
         private GroupBox groupBox1;
-        private TextBox txt;
+        private TextBox txtApellido;
         private TextBox txtNombre;
         private Label lblApellido;
         private Label lblNombre;
         private Button cmdAceptar;
         private Button cmdCancelar;
+        private ComboBox cbxDias;
     }
 }
