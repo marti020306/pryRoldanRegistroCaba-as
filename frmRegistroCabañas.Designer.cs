@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroCabañas));
             grbTipoCabañas = new GroupBox();
             cbxDias = new ComboBox();
             lstDias = new Label();
@@ -43,9 +44,9 @@
             optTarjeta = new RadioButton();
             optEfectivo = new RadioButton();
             groupBox1 = new GroupBox();
-            txtApellido = new TextBox();
+            mtxTelefono = new MaskedTextBox();
             txtNombre = new TextBox();
-            lblApellido = new Label();
+            lblTelefono = new Label();
             lblNombre = new Label();
             cmdAceptar = new Button();
             cmdCancelar = new Button();
@@ -208,9 +209,9 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtApellido);
+            groupBox1.Controls.Add(mtxTelefono);
             groupBox1.Controls.Add(txtNombre);
-            groupBox1.Controls.Add(lblApellido);
+            groupBox1.Controls.Add(lblTelefono);
             groupBox1.Controls.Add(lblNombre);
             groupBox1.Location = new Point(25, 307);
             groupBox1.Name = "groupBox1";
@@ -220,13 +221,14 @@
             groupBox1.Text = "Titular de la Reserva";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // txtApellido
+            // mtxTelefono
             // 
-            txtApellido.Location = new Point(82, 82);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(294, 27);
-            txtApellido.TabIndex = 5;
-            txtApellido.TextChanged += txtApellido_TextChanged;
+            mtxTelefono.Location = new Point(83, 86);
+            mtxTelefono.Mask = "000-000-0000";
+            mtxTelefono.Name = "mtxTelefono";
+            mtxTelefono.Size = new Size(294, 27);
+            mtxTelefono.TabIndex = 5;
+            mtxTelefono.MaskInputRejected += mtxTelefono_MaskInputRejected;
             // 
             // txtNombre
             // 
@@ -236,14 +238,15 @@
             txtNombre.TabIndex = 4;
             txtNombre.TextChanged += txtNombre_TextChanged;
             // 
-            // lblApellido
+            // lblTelefono
             // 
-            lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(6, 85);
-            lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(70, 20);
-            lblApellido.TabIndex = 4;
-            lblApellido.Text = "Apellido ";
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(6, 85);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(71, 20);
+            lblTelefono.TabIndex = 4;
+            lblTelefono.Text = "Télefono ";
+            lblTelefono.Click += lblApellido_Click;
             // 
             // lblNombre
             // 
@@ -295,6 +298,7 @@
             Controls.Add(mrgTipoPago);
             Controls.Add(grbAdicionales);
             Controls.Add(grbTipoCabañas);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmRegistroCabañas";
             Text = "Registro cabañas";
             Load += frmRegistroCabañas_Load;
@@ -324,13 +328,13 @@
         private ComboBox cbxTarjetas;
         private Label lblTarjeta;
         private GroupBox groupBox1;
-        private TextBox txtApellido;
         private TextBox txtNombre;
-        private Label lblApellido;
+        private Label lblTelefono;
         private Label lblNombre;
         private Button cmdAceptar;
         private Button cmdCancelar;
         private ComboBox cbxDias;
         private ListBox lstRegistro;
+        private MaskedTextBox mtxTelefono;
     }
 }

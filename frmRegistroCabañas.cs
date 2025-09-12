@@ -22,7 +22,7 @@ namespace pryRoldanRegistroCabañas
         private void LimpiarControles()
         {
             txtNombre.Clear();
-            txtApellido.Clear();
+            mtxTelefono.Clear();
             cbxTipo.SelectedIndex = 0;
             cbxPersonas.SelectedIndex = 0;
             cbxDias.SelectedIndex = 0;
@@ -35,7 +35,7 @@ namespace pryRoldanRegistroCabañas
             optTarjeta.Checked = false;
             cbxTarjetas.Enabled = false;
             txtNombre.Clear();
-            txtApellido.Clear();
+            mtxTelefono.Clear();
             cmdAceptar.Enabled = false;
             cbxTipo.Focus();
         }
@@ -58,23 +58,12 @@ namespace pryRoldanRegistroCabañas
 
         {
 
-            if (cbxTipo.SelectedIndex != -1)
-            {
-                chkAdicionales.Enabled = true;
-                cmdAceptar.Enabled = true;
-            }
-            else
-            {
-                chkAdicionales.Enabled = false;
-                cmdAceptar.Enabled = false;
-            }
 
 
         }
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-           
 
             CalcularPago();
         }
@@ -88,12 +77,14 @@ namespace pryRoldanRegistroCabañas
         {
             if (cbxDias.SelectedIndex <= 0)
             {
-                cmdAceptar.Enabled = true;
-            }
-            else
-            {
                 cmdAceptar.Enabled = false;
             }
+            else
+
+            {
+                cmdAceptar.Enabled = true;
+            }
+
         }
 
         private void frmRegistroCabañas_Load(object sender, EventArgs e)
@@ -116,9 +107,47 @@ namespace pryRoldanRegistroCabañas
             }
         }
 
-        private void txtApellido_TextChanged(object sender, EventArgs e)
+        
+
+        private void CalcularPago()
+
         {
-            if (txtApellido.TextLength > 0)
+            int PrecioBase = 0;
+            int maxpersonas = 0;
+            int personas = Convert.ToInt32(cbxPersonas.SelectedItem);
+
+
+            if (cbxTipo.SelectedItem.ToString().Contains("A"))
+            {
+                PrecioBase = 20;
+                maxpersonas = 4;
+            }
+
+            else if (cbxTipo.SelectedItem.ToString().Contains("B"))
+            {
+                PrecioBase = 34;
+                maxpersonas = 8;
+            }
+
+            if (personas > maxpersonas)
+            {
+                MessageBox.Show("La cabaña tipo" + " " + cbxTipo.SelectedItem +
+                    "permite un maximo de" + " " + maxpersonas + " " + "PERSONAS");
+                return;
+
+
+            }
+
+        }
+
+        private void lblApellido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtxTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            if (mtxTelefono.TextLength > 0)
             {
                 cmdAceptar.Enabled = true;
             }
@@ -126,37 +155,6 @@ namespace pryRoldanRegistroCabañas
             {
                 cmdAceptar.Enabled = false;
             }
-        }
-
-        private void CalcularPago()
-
-        {
-           int PrecioBase = 0;
-           int maxpersonas = 0;
-           int personas = Convert.ToInt32(cbxPersonas.SelectedItem);
-
-
-           if (cbxTipo.SelectedItem.ToString().Contains("A"))
-            {
-                PrecioBase = 20;
-                maxpersonas = 4;
-            }
-
-           else if ( cbxTipo.SelectedItem.ToString().Contains("B"))
-            {
-                PrecioBase = 34;
-                maxpersonas = 8;
-            }
-
-           if ( personas > maxpersonas)
-            {
-                MessageBox.Show("La cabaña tipo" + " "+ cbxTipo.SelectedItem+
-                    "permite un maximo de"+ " " + maxpersonas + " "+ "PERSONAS");
-                return;
-                
-
-            }
-
         }
     }
 }
