@@ -49,6 +49,7 @@
             lblNombre = new Label();
             cmdAceptar = new Button();
             cmdCancelar = new Button();
+            lstRegistro = new ListBox();
             grbTipoCabañas.SuspendLayout();
             grbAdicionales.SuspendLayout();
             mrgTipoPago.SuspendLayout();
@@ -78,6 +79,7 @@
             cbxDias.Name = "cbxDias";
             cbxDias.Size = new Size(151, 28);
             cbxDias.TabIndex = 2;
+            cbxDias.SelectedIndexChanged += cbxDias_SelectedIndexChanged;
             // 
             // lstDias
             // 
@@ -96,6 +98,7 @@
             cbxPersonas.Name = "cbxPersonas";
             cbxPersonas.Size = new Size(151, 28);
             cbxPersonas.TabIndex = 1;
+            cbxPersonas.SelectedIndexChanged += cbxPersonas_SelectedIndexChanged;
             // 
             // lstPersonas
             // 
@@ -113,7 +116,7 @@
             cbxTipo.Location = new Point(51, 39);
             cbxTipo.Name = "cbxTipo";
             cbxTipo.Size = new Size(151, 28);
-            cbxTipo.TabIndex = 1;
+            cbxTipo.TabIndex = 0;
             cbxTipo.SelectedIndexChanged += cbxTipo_SelectedIndexChanged;
             // 
             // lblTipo
@@ -223,6 +226,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(294, 27);
             txtApellido.TabIndex = 5;
+            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
             // txtNombre
             // 
@@ -230,6 +234,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(291, 27);
             txtNombre.TabIndex = 4;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // lblApellido
             // 
@@ -270,11 +275,20 @@
             cmdCancelar.UseVisualStyleBackColor = true;
             cmdCancelar.Click += cmdCancelar_Click;
             // 
+            // lstRegistro
+            // 
+            lstRegistro.FormattingEnabled = true;
+            lstRegistro.Location = new Point(12, 520);
+            lstRegistro.Name = "lstRegistro";
+            lstRegistro.Size = new Size(694, 104);
+            lstRegistro.TabIndex = 6;
+            // 
             // frmRegistroCabañas
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(718, 646);
+            Controls.Add(lstRegistro);
             Controls.Add(cmdCancelar);
             Controls.Add(cmdAceptar);
             Controls.Add(groupBox1);
@@ -283,6 +297,7 @@
             Controls.Add(grbTipoCabañas);
             Name = "frmRegistroCabañas";
             Text = "Registro cabañas";
+            Load += frmRegistroCabañas_Load;
             grbTipoCabañas.ResumeLayout(false);
             grbTipoCabañas.PerformLayout();
             grbAdicionales.ResumeLayout(false);
@@ -316,5 +331,6 @@
         private Button cmdAceptar;
         private Button cmdCancelar;
         private ComboBox cbxDias;
+        private ListBox lstRegistro;
     }
 }
