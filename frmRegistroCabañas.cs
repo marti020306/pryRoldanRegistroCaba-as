@@ -17,6 +17,7 @@ namespace pryRoldanRegistroCabañas
         private void cmdCancelar_Click(object sender, EventArgs e)
         {
             LimpiarControles();
+            
         }
 
         private void LimpiarControles()
@@ -38,6 +39,8 @@ namespace pryRoldanRegistroCabañas
             mtxTelefono.Clear();
             cmdAceptar.Enabled = false;
             cbxTipo.Focus();
+            lstRegistro.Items.Clear();
+
         }
 
         private void optTarjeta_CheckedChanged(object sender, EventArgs e)
@@ -66,7 +69,10 @@ namespace pryRoldanRegistroCabañas
         {
 
             CalcularPago();
+
         }
+
+            
 
         private void cbxPersonas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -115,12 +121,13 @@ namespace pryRoldanRegistroCabañas
             int PrecioBase = 0;
             int maxpersonas = 0;
             int personas = Convert.ToInt32(cbxPersonas.SelectedItem);
-
+            Decimal PrecioDiario = 0;
+            string Adicionales = "";
 
             if (cbxTipo.SelectedItem.ToString().Contains("A"))
             {
-                PrecioBase = 20;
-                maxpersonas = 4;
+                    PrecioBase = 20;
+                    maxpersonas = 4;
             }
 
             else if (cbxTipo.SelectedItem.ToString().Contains("B"))
@@ -138,7 +145,87 @@ namespace pryRoldanRegistroCabañas
 
             }
 
-        }
+            PrecioDiario = PrecioBase + personas;
+
+
+            for (int i = 0; i < chkAdicionales.Items.Count; i++)
+            {
+                if (chkAdicionales.GetItemChecked(i))
+                {
+                    Adicionales = Adicionales + chkAdicionales.Items[i].ToString();
+
+                    if (Adicionales.Contains("Cocina"))
+                    {
+                        PrecioDiario += 1m;
+                    }
+
+                    else if (Adicionales.Contains("Heladera"))
+                    {
+                        PrecioDiario += 1.5m;
+                    }
+
+                    else if (Adicionales.Contains("Television"))
+                    {
+                        PrecioDiario += 2m;
+                    }
+
+                    int Dias = Convert.ToInt32(cbxDias.SelectedItem);
+
+                    Decimal PrecioFinal = PrecioDiario * Dias;
+
+                    string formaPago = "Efectivo";
+
+                    if ( optEfectivo.Checked)
+
+                    {
+                        formaPago = PrecioFinal.ToString();
+                    }
+                    if (optTarjeta.Checked)
+                    {
+                        formaPago = cbxTarjetas.SelectedItem.ToString();
+
+                        if (formaPago == "Card Blue")
+                        {
+                            PrecioFinal = PrecioFinal * 1.20m;
+
+                        }
+
+                        else if ( formaPago == "Card Green")
+                        {
+                            PrecioFinal = PrecioFinal * 1.20m;
+                        }
+
+                        else if ( formaPago == "Card Red")
+                        {
+                            PrecioFinal = PrecioFinal * 1.10m;
+                        }
+                    }
+
+
+
+
+
+                    lstRegistro.Items.Add(txtNombre.Text);
+                    lstRegistro.Items.Add(mtxTelefono.Text);
+                    lstRegistro.Items.Add("Tipo de Cabaña: " + cbxTipo.SelectedItem);
+                    lstRegistro.Items.Add("Personas: " + cbxPersonas.SelectedItem);
+                    lstRegistro.Items.Add("Días: " + cbxDias.SelectedItem);
+                    lstRegistro.Items.Add("Forma de pago: " + formaPago);
+                    lstRegistro.Items.Add("Precio diario: U$S " + PrecioDiario);
+                    lstRegistro.Items.Add("Precio total: U$S " + PrecioFinal);
+                   
+
+
+
+
+
+
+
+
+                }
+
+                }
+            }        
 
         private void lblApellido_Click(object sender, EventArgs e)
         {
