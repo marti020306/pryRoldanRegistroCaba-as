@@ -15,8 +15,14 @@ namespace pryRoldanRegistroCabañas
         }
 
         private void cmdCancelar_Click(object sender, EventArgs e)
+
         {
-            LimpiarControles();
+            if (MessageBox.Show("¿Desea cancelar el registro?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                 LimpiarControles();
+            }
+
+           
             
         }
 

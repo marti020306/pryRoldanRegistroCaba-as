@@ -283,7 +283,7 @@
             lstRegistro.FormattingEnabled = true;
             lstRegistro.Location = new Point(12, 500);
             lstRegistro.Name = "lstRegistro";
-            lstRegistro.Size = new Size(694, 144);
+            lstRegistro.Size = new Size(694, 184);
             lstRegistro.TabIndex = 6;
             // 
             // frmRegistroCabañas
@@ -291,7 +291,7 @@
             AutoScaleMode = AutoScaleMode.None;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(718, 654);
+            ClientSize = new Size(718, 702);
             Controls.Add(lstRegistro);
             Controls.Add(cmdCancelar);
             Controls.Add(cmdAceptar);
