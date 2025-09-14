@@ -172,13 +172,14 @@ namespace pryRoldanRegistroCabañas
                     int Dias = Convert.ToInt32(cbxDias.SelectedItem);
 
                     Decimal PrecioFinal = PrecioDiario * Dias;
-
+                    string Recargo = "";
                     string formaPago = "Efectivo";
 
                     if ( optEfectivo.Checked)
 
                     {
-                        formaPago = PrecioFinal.ToString();
+                        formaPago = "Efectivo";
+                        PrecioFinal = PrecioFinal + 0;
                     }
                     if (optTarjeta.Checked)
                     {
@@ -187,22 +188,25 @@ namespace pryRoldanRegistroCabañas
                         if (formaPago == "Card Blue")
                         {
                             PrecioFinal = PrecioFinal * 1.20m;
+                            Recargo = "20%";
 
                         }
 
                         else if ( formaPago == "Card Green")
                         {
                             PrecioFinal = PrecioFinal * 1.20m;
+                            Recargo = "20%";
                         }
 
                         else if ( formaPago == "Card Red")
                         {
                             PrecioFinal = PrecioFinal * 1.10m;
+                            Recargo = "10%";
                         }
                     }
 
 
-
+                    //Prguntar sobre lstRegistro cuando apretas 2 adicionales
 
 
                     lstRegistro.Items.Add(txtNombre.Text);
@@ -210,7 +214,9 @@ namespace pryRoldanRegistroCabañas
                     lstRegistro.Items.Add("Tipo de Cabaña: " + cbxTipo.SelectedItem);
                     lstRegistro.Items.Add("Personas: " + cbxPersonas.SelectedItem);
                     lstRegistro.Items.Add("Días: " + cbxDias.SelectedItem);
+                    lstRegistro.Items.Add("Adicionales: " + Adicionales);
                     lstRegistro.Items.Add("Forma de pago: " + formaPago);
+                    lstRegistro.Items.Add("Recargo: " + Recargo);
                     lstRegistro.Items.Add("Precio diario: U$S " + PrecioDiario);
                     lstRegistro.Items.Add("Precio total: U$S " + PrecioFinal);
                    
