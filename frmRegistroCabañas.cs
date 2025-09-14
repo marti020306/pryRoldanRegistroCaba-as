@@ -169,7 +169,16 @@ namespace pryRoldanRegistroCabañas
                         PrecioDiario += 2m;
                     }
 
-                    int Dias = Convert.ToInt32(cbxDias.SelectedItem);
+                    else if (Adicionales.Contains("Sin Adicionales"))
+
+                    {
+                        PrecioDiario += 0;
+                        Adicionales = "Sin Adicionales";
+                    }
+
+
+
+                        int Dias = Convert.ToInt32(cbxDias.SelectedItem);
 
                     Decimal PrecioFinal = PrecioDiario * Dias;
                     string Recargo = "";
@@ -180,6 +189,8 @@ namespace pryRoldanRegistroCabañas
                     {
                         formaPago = "Efectivo";
                         PrecioFinal = PrecioFinal + 0;
+
+                        Recargo = "Sin Recargo";
                     }
                     if (optTarjeta.Checked)
                     {

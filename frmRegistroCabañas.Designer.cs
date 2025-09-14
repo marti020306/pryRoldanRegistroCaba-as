@@ -146,10 +146,10 @@
             chkAdicionales.BorderStyle = BorderStyle.None;
             chkAdicionales.ForeColor = SystemColors.InactiveCaptionText;
             chkAdicionales.FormattingEnabled = true;
-            chkAdicionales.Items.AddRange(new object[] { "Heladera", "Televisores", "Cocina " });
+            chkAdicionales.Items.AddRange(new object[] { "Heladera", "Televisores", "Cocina ", "Sin Adicionales" });
             chkAdicionales.Location = new Point(23, 36);
             chkAdicionales.Name = "chkAdicionales";
-            chkAdicionales.Size = new Size(104, 88);
+            chkAdicionales.Size = new Size(139, 88);
             chkAdicionales.TabIndex = 2;
             // 
             // mrgTipoPago
@@ -281,16 +281,17 @@
             // lstRegistro
             // 
             lstRegistro.FormattingEnabled = true;
-            lstRegistro.Location = new Point(12, 520);
+            lstRegistro.Location = new Point(12, 500);
             lstRegistro.Name = "lstRegistro";
-            lstRegistro.Size = new Size(694, 104);
+            lstRegistro.Size = new Size(694, 144);
             lstRegistro.TabIndex = 6;
             // 
             // frmRegistroCabañas
             // 
             AutoScaleMode = AutoScaleMode.None;
+            AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(718, 646);
+            ClientSize = new Size(718, 654);
             Controls.Add(lstRegistro);
             Controls.Add(cmdCancelar);
             Controls.Add(cmdAceptar);
@@ -300,6 +301,7 @@
             Controls.Add(grbTipoCabañas);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmRegistroCabañas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro cabañas";
             Load += frmRegistroCabañas_Load;
             grbTipoCabañas.ResumeLayout(false);
