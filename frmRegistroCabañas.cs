@@ -226,8 +226,8 @@ namespace pryRoldanRegistroCabañas
                     //Prguntar sobre lstRegistro cuando apretas 2 adicionales
 
 
-                    lstRegistro.Items.Add(txtNombre.Text);
-                    lstRegistro.Items.Add(mtxTelefono.Text);
+                    lstRegistro.Items.Add("Nombre:" + " " + txtNombre.Text);
+                    lstRegistro.Items.Add("Télefono: " + " " + mtxTelefono.Text);
                     lstRegistro.Items.Add("Tipo de Cabaña: " + cbxTipo.SelectedItem);
                     lstRegistro.Items.Add("Personas: " + cbxPersonas.SelectedItem);
                     lstRegistro.Items.Add("Días: " + cbxDias.SelectedItem);
