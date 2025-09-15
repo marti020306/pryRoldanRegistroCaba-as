@@ -78,7 +78,7 @@
             cbxDias.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
             cbxDias.Location = new Point(481, 45);
             cbxDias.Name = "cbxDias";
-            cbxDias.Size = new Size(151, 28);
+            cbxDias.Size = new Size(151, 23);
             cbxDias.TabIndex = 2;
             cbxDias.SelectedIndexChanged += cbxDias_SelectedIndexChanged;
             // 
@@ -87,7 +87,7 @@
             lstDias.AutoSize = true;
             lstDias.Location = new Point(437, 50);
             lstDias.Name = "lstDias";
-            lstDias.Size = new Size(38, 20);
+            lstDias.Size = new Size(29, 15);
             lstDias.TabIndex = 1;
             lstDias.Text = "Días";
             // 
@@ -97,7 +97,7 @@
             cbxPersonas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8" });
             cbxPersonas.Location = new Point(280, 44);
             cbxPersonas.Name = "cbxPersonas";
-            cbxPersonas.Size = new Size(151, 28);
+            cbxPersonas.Size = new Size(151, 23);
             cbxPersonas.TabIndex = 1;
             cbxPersonas.SelectedIndexChanged += cbxPersonas_SelectedIndexChanged;
             // 
@@ -106,7 +106,7 @@
             lstPersonas.AutoSize = true;
             lstPersonas.Location = new Point(208, 45);
             lstPersonas.Name = "lstPersonas";
-            lstPersonas.Size = new Size(66, 20);
+            lstPersonas.Size = new Size(54, 15);
             lstPersonas.TabIndex = 1;
             lstPersonas.Text = "Personas";
             // 
@@ -116,7 +116,7 @@
             cbxTipo.Items.AddRange(new object[] { "A ", "B" });
             cbxTipo.Location = new Point(51, 39);
             cbxTipo.Name = "cbxTipo";
-            cbxTipo.Size = new Size(151, 28);
+            cbxTipo.Size = new Size(151, 23);
             cbxTipo.TabIndex = 0;
             cbxTipo.SelectedIndexChanged += cbxTipo_SelectedIndexChanged;
             // 
@@ -126,7 +126,7 @@
             lblTipo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTipo.Location = new Point(6, 39);
             lblTipo.Name = "lblTipo";
-            lblTipo.Size = new Size(39, 20);
+            lblTipo.Size = new Size(30, 15);
             lblTipo.TabIndex = 0;
             lblTipo.Text = "Tipo";
             // 
@@ -146,10 +146,10 @@
             chkAdicionales.BorderStyle = BorderStyle.None;
             chkAdicionales.ForeColor = SystemColors.InactiveCaptionText;
             chkAdicionales.FormattingEnabled = true;
-            chkAdicionales.Items.AddRange(new object[] { "Heladera", "Televisores", "Cocina ", "Sin Adicionales" });
+            chkAdicionales.Items.AddRange(new object[] { "Heladera", "Televisores", "Cocina " });
             chkAdicionales.Location = new Point(23, 36);
             chkAdicionales.Name = "chkAdicionales";
-            chkAdicionales.Size = new Size(139, 88);
+            chkAdicionales.Size = new Size(139, 72);
             chkAdicionales.TabIndex = 2;
             // 
             // mrgTipoPago
@@ -170,7 +170,7 @@
             lblTarjeta.AutoSize = true;
             lblTarjeta.Location = new Point(200, 47);
             lblTarjeta.Name = "lblTarjeta";
-            lblTarjeta.Size = new Size(59, 20);
+            lblTarjeta.Size = new Size(46, 15);
             lblTarjeta.TabIndex = 4;
             lblTarjeta.Text = "Tarjetas";
             // 
@@ -181,7 +181,7 @@
             cbxTarjetas.Items.AddRange(new object[] { "Card Red", "Card Green", "Card Blue " });
             cbxTarjetas.Location = new Point(200, 81);
             cbxTarjetas.Name = "cbxTarjetas";
-            cbxTarjetas.Size = new Size(151, 28);
+            cbxTarjetas.Size = new Size(151, 23);
             cbxTarjetas.TabIndex = 3;
             // 
             // optTarjeta
@@ -189,7 +189,7 @@
             optTarjeta.AutoSize = true;
             optTarjeta.Location = new Point(20, 56);
             optTarjeta.Name = "optTarjeta";
-            optTarjeta.Size = new Size(74, 24);
+            optTarjeta.Size = new Size(59, 19);
             optTarjeta.TabIndex = 1;
             optTarjeta.TabStop = true;
             optTarjeta.Text = "Tarjeta";
@@ -201,7 +201,7 @@
             optEfectivo.AutoSize = true;
             optEfectivo.Location = new Point(20, 26);
             optEfectivo.Name = "optEfectivo";
-            optEfectivo.Size = new Size(83, 24);
+            optEfectivo.Size = new Size(67, 19);
             optEfectivo.TabIndex = 0;
             optEfectivo.TabStop = true;
             optEfectivo.Text = "Efectivo";
@@ -226,7 +226,7 @@
             mtxTelefono.Location = new Point(83, 86);
             mtxTelefono.Mask = "000-000-0000";
             mtxTelefono.Name = "mtxTelefono";
-            mtxTelefono.Size = new Size(294, 27);
+            mtxTelefono.Size = new Size(294, 23);
             mtxTelefono.TabIndex = 5;
             mtxTelefono.MaskInputRejected += mtxTelefono_MaskInputRejected;
             // 
@@ -234,7 +234,7 @@
             // 
             txtNombre.Location = new Point(85, 34);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(291, 27);
+            txtNombre.Size = new Size(291, 23);
             txtNombre.TabIndex = 4;
             txtNombre.TextChanged += txtNombre_TextChanged;
             // 
@@ -243,7 +243,7 @@
             lblTelefono.AutoSize = true;
             lblTelefono.Location = new Point(6, 85);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(71, 20);
+            lblTelefono.Size = new Size(55, 15);
             lblTelefono.TabIndex = 4;
             lblTelefono.Text = "Télefono ";
             lblTelefono.Click += lblApellido_Click;
@@ -253,7 +253,7 @@
             lblNombre.AutoSize = true;
             lblNombre.Location = new Point(6, 34);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(64, 20);
+            lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre";
             // 
@@ -281,6 +281,7 @@
             // lstRegistro
             // 
             lstRegistro.FormattingEnabled = true;
+            lstRegistro.ItemHeight = 15;
             lstRegistro.Location = new Point(12, 500);
             lstRegistro.Name = "lstRegistro";
             lstRegistro.Size = new Size(694, 184);
