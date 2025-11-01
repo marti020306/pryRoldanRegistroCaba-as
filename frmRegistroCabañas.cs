@@ -7,6 +7,23 @@ namespace pryRoldanRegistroCabañas
             InitializeComponent();
         }
 
+        struct RegistroCabaña
+        {
+            public string Nombre;
+            public string Telefono;
+            public string TipoCabaña;
+            public int Personas;
+            public int Dias;
+            public string Adicionales;
+            public string FormaPago;
+            public string Recargo;
+            public decimal PrecioDiario;
+            public decimal PrecioTotal;
+        }
+
+        
+        private RegistroCabaña[] registros = new RegistroCabaña[20];
+        private int contador = 0;
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -222,7 +239,7 @@ namespace pryRoldanRegistroCabañas
 
 
             }
-            //Prguntar sobre lstRegistro cuando apretas 2 adicionales
+            
 
 
             lstRegistro.Items.Add("Nombre:" + " " + txtNombre.Text);
@@ -235,7 +252,24 @@ namespace pryRoldanRegistroCabañas
             lstRegistro.Items.Add("Recargo: " + Recargo);
             lstRegistro.Items.Add("Precio diario: U$S " + PrecioDiario);
             lstRegistro.Items.Add("Precio total: U$S " + PrecioFinal);
-        }        
+
+            registros[contador] = new RegistroCabaña()
+            {
+                Nombre = txtNombre.Text,
+                Telefono = mtxTelefono.Text,
+                TipoCabaña = cbxTipo.SelectedItem.ToString(),
+                Personas = personas,
+                Dias = Dias,
+                Adicionales = Adicionales,
+                FormaPago = formaPago,
+                Recargo = Recargo,
+                PrecioDiario = PrecioDiario,
+                PrecioTotal = PrecioFinal
+            };
+
+            contador++;
+
+        }
 
         private void lblApellido_Click(object sender, EventArgs e)
         {
